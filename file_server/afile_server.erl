@@ -8,8 +8,8 @@ loop(Dir) ->
     receive
         {Client, list_dir} ->
             Client ! {self(), file:list_dir(Dir)};
-        {Client, {get_file, File}} ->
-            Full = filenames:join(Dir, File),
+        {Client, {read_file, File}} ->
+            Full = filename:join(Dir, File),
             Client ! {self(), file:read_file(Full)}
     end,
     loop(Dir).
