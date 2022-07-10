@@ -1,0 +1,1 @@
+-record(todo, {task="Practice record", status=progress, text}).
